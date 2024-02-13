@@ -4,15 +4,15 @@
 #SBATCH -p thin
 #SBATCH --ntasks=16
 #SBATCH --cpus-per-task=8
-#SBATCH --output=logs/WeightedGWASIPW.log 
+#SBATCH --output=logs/WeightedGWASSex.log 
 
 #Syntax of the arguments is as follows: bim/bed/fam-file, phenotype name, phenotype-file, output file name 
 module load 2021
 module load R/4.1.0-foss-2021a
 
-Rscript WeightList.R
+Rscript SexList.R
 
-for c in {21..22}
+for c in {1..22}
 do
-Rscript --vanilla WeightedGWAS.R ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} LassoWeight ../TEMP/IPWPheno.txt IPW${c}.csv ../INPUT/UKBWeightsKFolded.csv
+Rscript --vanilla WeightedGWAS.R ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} Sex ../TEMP/sex.txt Sex${c}.csv ../INPUT/UKBWeightsKFolded.csv
 done

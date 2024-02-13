@@ -9,6 +9,7 @@ library(ggrepel)
 library(stringr)
 
 tophitfile<-as.character(args[1])
+#tophitfile<-"../OUTPUT/TABLES/DifferentSNPsWGWASSuggestiveBreastCancer.csv"
 #comma seperated list of top hits positions ranges (to use for exclusion in QCtool)
 
 #check: how many independent hits? --> what do we know about these hits? GWAS Catalogue etc? 
@@ -39,7 +40,7 @@ GWAScat$Trait<-gsub("(.*),.*","\\1", GWAScat$Trait) #removes elements form strin
 #Only keep top hits
 NROW(GWAScat)
 GWAScat[GWAScat$SNP=="rs144942570",]
-GWAScat<-GWAScat[as.numeric(GWAScat$"P.VALUE")<=5*10^(-8),]
+GWAScat<-GWAScat[as.numeric(GWAScat$"P.VALUE")<=5*10^(-5),]
 GWAScat[GWAScat$SNP=="rs144942570",]
 
 NROW(GWAScat)

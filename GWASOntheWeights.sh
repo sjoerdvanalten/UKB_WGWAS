@@ -21,16 +21,21 @@ Rscript WeightToPheno.R
 
 for c in {1..22}
 do
-../SOFTWARE/./plink  --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --linear intercept --allow-no-sex --pheno ../TEMP/UKBWeightsPheno.pheno --all-pheno --out ../TEMP/GWASonTheWeights${c}
+#../SOFTWARE/./plink  --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --linear intercept --allow-no-sex --pheno ../TEMP/UKBWeightsPheno.pheno --all-pheno --out ../TEMP/GWASonTheWeights${c}
+../SOFTWARE/./plink  --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --linear intercept --allow-no-sex --pheno ../TEMP/UKBWeightsPhenoResid.pheno --all-pheno --out ../TEMP/GWASonTheWeightsControlled${c}
 done 
+
+
 
 #clump to check for top hits
 for c in {1..22}
 do
-../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/GWASonTheWeights${c}.P1.assoc.linear  --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-r2 0.1 --clump-field P --out ../TEMP/GWASOnTheWeightsClumped${c}.txt
+#../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/GWASonTheWeights${c}.P1.assoc.linear  --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-r2 0.1 --clump-field P --out ../TEMP/GWASOnTheWeightsClumped${c}.txt
+../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/GWASonTheWeightsControlled${c}.P1.assoc.linear  --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-r2 0.1 --clump-field P --out ../TEMP/GWASOnTheWeightsControlledClumped${c}.txt
 done 
 
 Rscript GWASOnTheWeightsAnalyze.R ../TEMP/GWASonTheWeights ../TEMP/GWASOnTheWeightsClumped GWASOnTheWeights
+Rscript GWASOnTheWeightsAnalyze.R ../TEMP/GWASonTheWeightsControlled ../TEMP/GWASOnTheWeightsControlledClumped GWASOnTheWeightsControlled
 
 module purge 
 module load 2021

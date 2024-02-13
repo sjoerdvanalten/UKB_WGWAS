@@ -7,7 +7,7 @@ args <- commandArgs(trailingOnly = TRUE)
 #args<-c("DepressionChr","Depression","NA","NA","NA","NA","NA","NA","NA","../TEMP/Depression.resid.txt")
 #args<-c("Sex","Sex","../../svalten/GWAS_SUMMARY/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.hapmap","MarkerName","Allele1","Allele2","BETA","SE","../TEMP/GWASSum/Height1Chr","../TEMP/sex.txt")
 #args<-c("BreastCancerChr","BreastCancer","../TEMP/oncoarray_bcac_public_release_oct17_clean.txt.hapmap","SNP","a0","a1","BETA","SE","../TEMP/GWASSum/BreastCancerChr","../TEMP/BreastCancer.resid.txt","BreastCancer")
-args<-c("SexChr","Sex",NA,NA,NA,NA,NA,NA,NA,"../TEMP/sex.txt","Sex")
+#args<-c("SexChr","Sex",NA,NA,NA,NA,NA,NA,NA,"../TEMP/sex.txt","Sex")
 
 WeightedSE<-function(x, w, na.rm=TRUE){
   if (length(x)!=length(w)){
@@ -105,8 +105,8 @@ N_effGWAS<-mean(Results$N_eff)
 Results$Z<-Results$BETA/Results$SE
 WResults$Z<-WResults$BETA/WResults$SE
 
-write.table(Results[c("SNP","CHR","BP","A1","A2","BETA","SE","P","MAF","N_eff","Z")],paste0("../OUTPUT/GWAS/",PhenoName,".txt"),quote=FALSE,row.names=FALSE)
-write.table(WResults[c("SNP","CHR","BP","A1","A2","BETA","SE","P","MAF","N_eff","Z")],paste0("../OUTPUT/WGWAS/",PhenoName,".txt"),quote=FALSE,row.names=FALSE)
+write.table(Results[c("SNP","CHR","BP","A1","A2","BETA","SE","P","MAF","N_eff","Z")],paste0("../OUTPUT/GWAS/",ClumpPrefix,".txt"),quote=FALSE,row.names=FALSE)
+write.table(WResults[c("SNP","CHR","BP","A1","A2","BETA","SE","P","MAF","N_eff","Z")],paste0("../OUTPUT/WGWAS/",ClumpPrefix,".txt"),quote=FALSE,row.names=FALSE)
 
 WResults<-NULL
 
