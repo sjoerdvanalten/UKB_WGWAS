@@ -8,22 +8,22 @@ python 3.9.5 with packages pandas, numpy, re, os and subprocess.
 
 #Run the following files in order:
 
-sbatch Preprocess_ukb.sh to #prepare phenotypes
+sbatch Preprocess_ukb.sh #to prepare phenotypes
 sbatch GeneticDataUnpack.sh #to unpack genetic data
 
 sbatch GWASOntheWeights.sh #to run the GWAS on the weights (with and without controls)
 sbatch WeightedGWASIPW.sh #to run weighted GWAS on the weights
 sbatch WeigtedGWASIPWNoControls.sh #to run weighted GWAS on the weights without controls
 
-sbatch GWASIPWAnalyze.sh
-sbatch GWASIPWNoControlAnalyze.sh 
-sbatch GWASOnTheWeightsZoom.sh to obtain zoomed manhattan plots of top hits
+sbatch GWASIPWAnalyze.sh #to analyze the GWAS on the weights
+sbatch GWASIPWNoControlAnalyze.sh #to analyze the GWAS (without controls)
+sbatch GWASOnTheWeightsZoom.sh #to obtain zoomed manhattan plots of top hits
 
 #to obtain summary statistics of our weighted phenotypes:
 Rscript WeightedPhenotypes.R
 
 #To run weighted GWAS:
-sbatch ResidualizePhenotypes.sh to residualize these phenotypes from control variables 
+sbatch ResidualizePhenotypes.sh #to residualize these phenotypes from control variables 
 
 #Run GWAS for 10 phenotypes
 sbatch WeightedGWASAgeFirstBirth.sh
