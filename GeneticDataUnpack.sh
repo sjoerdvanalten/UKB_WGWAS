@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -t 2-00:00:00 ## WALL CLOCK TIME
-#SBATCH -N 1 -c 64 ## REQUEST NODES AND CORES (ONLY STAGING NODES CAN REQUEST SINGLE CORES)
-#SBATCH -p thin ## NODE TYPE: thin, fat, gpu, short, staging
+#SBATCH -t 4-00:00:00 ## WALL CLOCK TIME
+#SBATCH -N 1 -c 128 ## REQUEST NODES AND CORES (ONLY STAGING NODES CAN REQUEST SINGLE CORES)
+#SBATCH -p fat_rome ## NODE TYPE: thin, fat, gpu, short, staging
 #SBATCH --cpus-per-task=32
 #SBATCH --output=logs/GeneticDataUnpack.log 
 

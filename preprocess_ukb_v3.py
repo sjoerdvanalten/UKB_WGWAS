@@ -22,7 +22,7 @@ ukb_cols = ["f.31",		# Sex
 			"f.22006",	# Genetic ethnic grouping
 			"f.22027",	# Outliers for heterozygosity or missing rate
 			"f.22019",	# Sex chromosome aneuploidy
-			"f.22009",	# Principal components
+            "f.22009",	# Principal components
 			"f.1568", "f.1578", "f.1588", "f.1598", "f.1608", "f.5364",
 						# Drinks per week
 			"f.6138",		# (Educational) Qualifications
