@@ -89,3 +89,6 @@ head ../TEMP/samplesbolt.sample
   --statsFileBgenSnps=../OUTPUT/BOLT.PLINK.Weights.Bgen \
   --numThreads $cores 
 wait
+
+cut -f1 ../INPUT/w_hm3.snplist > tmp.txt
+grep -wFf tmp.txt ../OUTPUT/BOLT.PLINK.Weights.Bgen | awk '{$1=$1; print}' OFS=" " > ../OUTPUT/GWAS/IPWBolt.txt
