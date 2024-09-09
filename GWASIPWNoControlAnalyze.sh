@@ -9,12 +9,12 @@ module load 2021
 module load R/4.1.0-foss-2021a
 
 
-#for c in {1..22}
-#do 
-#cp ../TEMP/ChromResults/GWAS/IPWNoControls${c}.csv ../TEMP/ChromResults/GWAS/IPWNoControlsChr${c}.tab
-#../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/ChromResults/GWAS/IPWNoControlsChr${c}.tab --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-field P --out ../TEMP/Clumped/IPWNoControlsClumped${c}
-#cp ../TEMP/ChromResults/WGWAS/IPWNoControls${c}.csv ../TEMP/ChromResults/WGWAS/IPWNoControlsChr${c}.tab
-#../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/ChromResults/WGWAS/IPWNoControlsChr${c}.tab --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-field P --out ../TEMP/Clumped/IPWNoControlsClumped_W${c}
+for c in {1..22}
+do 
+cp ../TEMP/ChromResults/GWAS/IPWNoControls${c}.csv ../TEMP/ChromResults/GWAS/IPWNoControlsChr${c}.tab
+../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/ChromResults/GWAS/IPWNoControlsChr${c}.tab --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-field P --out ../TEMP/Clumped/IPWNoControlsClumped${c}
+cp ../TEMP/ChromResults/WGWAS/IPWNoControls${c}.csv ../TEMP/ChromResults/WGWAS/IPWNoControlsChr${c}.tab
+../SOFTWARE/./plink --bfile ../TEMP/PLINKFILES/UKBHapMapSNPsDef${c} --clump ../TEMP/ChromResults/WGWAS/IPWNoControlsChr${c}.tab --clump-p1 1 --clump-p2 1 --clump-snp-field SNP --clump-field P --out ../TEMP/Clumped/IPWNoControlsClumped_W${c}
 #done 
 
 Rscript WeightedGWASSexAnalyze.R IPWNoControlsChr LassoWeight NA NA NA NA NA NA NA ../TEMP/IPWPhenoNoControls.txt IPWNoControls
