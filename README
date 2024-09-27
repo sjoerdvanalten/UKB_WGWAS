@@ -1,3 +1,6 @@
+#This repository contains all the code used to obtain the results in "Correcting for volunteer bias in GWAS increases SNP effect sizes and heritability estimates"
+#Final results of all GWASs mentioned in the paper can be found in GWAS_Final (unweighted GWAS) and WGWAS_Final (weighted GWAS)
+
 #We used the following software packages in data analysis: 
 #R version 4.0.3 with packages ggplot2, tidyverse and ggExtra; R 4.1.0 with packages qqman, dplyr, plyr, ggplot2, ggrepel, stats, readxl, data.table, 
 #fastman; stringr, flexiblas, svMisc, estimatr, testit, doParallel, foreach, bigstatsr, BEDMatrix, lmtest, and AER;
